@@ -1,0 +1,18 @@
+.timelineCard {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile view handled by inline styles overrides or here */
+    .timelineCard {
+        max-width: 100%;
+    }
+}

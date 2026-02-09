@@ -1,0 +1,57 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    break-inside: avoid;
+    background-color: var(--accent);
+    aspect-ratio: 1;
+    /* Default square aspect ratio for grid */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.item:hover {
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+.item:nth-child(2n) {
+    aspect-ratio: 16 / 9;
+    grid-column: span 2;
+}
+
+.item:nth-child(3n) {
+    aspect-ratio: 3 / 4;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.item:hover .caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .item:nth-child(2n) {
+        grid-column: auto;
+        aspect-ratio: 16/9;
+    }
+}

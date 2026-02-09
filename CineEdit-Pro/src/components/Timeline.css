@@ -1,0 +1,442 @@
+.timeline {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--bg-secondary);
+}
+
+.timeline-header {
+    height: 40px;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-md);
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.timeline-title-section {
+    flex: 1;
+}
+
+.icon-btn.active-red {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
+.icon-btn.active-green {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid #22c55e;
+}
+
+.timeline-controls {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+.tool-buttons {
+    display: flex;
+    gap: var(--space-xs);
+    padding: 0 var(--space-md);
+    border-right: 1px solid var(--border-color);
+}
+
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.icon-btn {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.icon-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.icon-btn.active {
+    background: var(--accent-primary-dim);
+    color: var(--accent-primary);
+}
+
+.zoom-level {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.timeline-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.timeline-tracks-header {
+    width: 150px;
+    flex-shrink: 0;
+    background: var(--bg-tertiary);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.track-header {
+    min-height: 60px;
+    height: 60px;
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-xs);
+    flex-shrink: 0;
+}
+
+.track-name {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.track-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.timeline-content {
+    flex: 1;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: var(--bg-primary);
+}
+
+.timeline-ruler {
+    height: 30px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    user-select: none;
+}
+
+.time-marker {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-left: 1px solid var(--border-color);
+    padding-left: var(--space-xs);
+    display: flex;
+    align-items: center;
+}
+
+.time-marker-label {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    font-family: 'Courier New', monospace;
+}
+
+.timeline-tracks {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.track {
+    min-height: 60px;
+    height: 60px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    background: var(--bg-secondary);
+    flex-shrink: 0;
+}
+
+.track:hover {
+    background: rgba(74, 158, 255, 0.05);
+}
+
+.timeline-clip {
+    position: absolute;
+    top: 8px;
+    height: 44px;
+    /* background set by type classes */
+    border-radius: 4px;
+    cursor: move;
+    overflow: hidden;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.clip-video {
+    background: linear-gradient(135deg, #3a7bc8 0%, #2d6cb0 100%);
+    border: 2px solid #4a9eff;
+}
+
+.clip-audio {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    border: 2px solid #10b981;
+}
+
+.timeline-clip:hover {
+    border-color: #6bb3ff;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline-clip.selected {
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 0 15px rgba(74, 158, 255, 0.4);
+    z-index: 10;
+}
+
+.timeline-clip.dragging {
+    opacity: 0.5 !important;
+    cursor: grabbing !important;
+}
+
+.timeline-clip:active {
+    cursor: grabbing;
+}
+
+/* Trim Handles */
+.trim-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background: transparent;
+    cursor: ew-resize;
+    z-index: 20;
+    transition: background var(--transition-fast);
+}
+
+.trim-left {
+    left: 0;
+    border-left: 2px solid transparent;
+}
+
+.trim-right {
+    right: 0;
+    border-right: 2px solid transparent;
+}
+
+.timeline-clip:hover .trim-handle {
+    background: rgba(74, 158, 255, 0.3);
+}
+
+.timeline-clip:hover .trim-left {
+    border-left-color: var(--accent-primary);
+}
+
+.timeline-clip:hover .trim-right {
+    border-right-color: var(--accent-primary);
+}
+
+.trim-handle:hover {
+    background: rgba(74, 158, 255, 0.5) !important;
+}
+
+.clip-content {
+    padding: var(--space-xs) var(--space-sm);
+    pointer-events: none;
+}
+
+.clip-name {
+    font-size: var(--font-size-xs);
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.clip-waveform {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.playhead {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.playhead-handle {
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-secondary);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    cursor: grab;
+    pointer-events: all;
+}
+
+.playhead-line {
+    position: absolute;
+    top: 18px;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: var(--accent-secondary);
+    box-shadow: 0 0 8px rgba(255, 107, 53, 0.5);
+}
+
+/* Scrollbar styling for timeline */
+.timeline-content::-webkit-scrollbar {
+    height: 12px;
+}
+
+.timeline-content::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.timeline-content::-webkit-scrollbar-thumb {
+    background: var(--bg-hover);
+    border-radius: 6px;
+}
+
+.timeline-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Volume Automation */
+.volume-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.volume-line {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.7);
+    stroke-width: 2;
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+.volume-line:hover {
+    stroke: #fff;
+    stroke-width: 3;
+    cursor: crosshair;
+}
+
+.volume-node {
+    fill: #000000;
+    stroke: #ffffff;
+    stroke-width: 2;
+    cursor: grab;
+    pointer-events: all;
+    transition: r 0.1s;
+}
+
+.volume-node:hover {
+    r: 6;
+    fill: #333333;
+    stroke: #4a9eff;
+}
+
+.volume-node:active {
+    cursor: grabbing;
+}
+
+/* Volume node as HTML div for perfect circles */
+.volume-node-div {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000000;
+    border: 2px solid #ffffff;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    pointer-events: all;
+    z-index: 10;
+    transition: all 0.1s;
+}
+
+.volume-node-div:hover {
+    width: 12px;
+    height: 12px;
+    background: #333333;
+    border-color: #4a9eff;
+}
+
+.volume-node-div:active {
+    cursor: grabbing;
+    background: #000000;
+    border-color: #4a9eff;
+}
+
+/* Clip Link Button */
+.clip-link-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, background 0.2s;
+    z-index: 20;
+    color: #fff;
+}
+
+.clip-link-btn:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.9);
+    border-color: #4a9eff;
+}
+
+.clip-link-btn.active {
+    opacity: 0.8;
+}

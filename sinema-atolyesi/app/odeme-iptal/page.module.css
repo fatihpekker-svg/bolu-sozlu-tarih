@@ -1,0 +1,103 @@
+.cancelPage {
+    padding: 5rem 0;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancelCard {
+    background: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 4rem 3rem;
+    max-width: 600px;
+    text-align: center;
+}
+
+.icon {
+    color: #ef4444;
+    margin-bottom: 2rem;
+}
+
+.cancelCard h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+}
+
+.reasons {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.reasons h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.reasons ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.reasons li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--color-text-muted);
+}
+
+.reasons li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ef4444;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.help {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.help p {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-muted);
+}
+
+.help a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .cancelCard {
+        padding: 3rem 2rem;
+    }
+
+    .cancelCard h1 {
+        font-size: 2rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}

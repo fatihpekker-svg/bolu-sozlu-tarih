@@ -1,0 +1,39 @@
+.container {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: var(--color-light-gray);
+}
+
+.active {
+    background-color: rgba(217, 119, 6, 0.1);
+}
+
+.time {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.text {
+    font-size: 1rem;
+    line-height: 1.6;
+}

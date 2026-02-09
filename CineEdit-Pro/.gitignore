@@ -1,0 +1,17 @@
+node_modules/
+build/
+dist/
+.DS_Store
+*.log
+npm-debug.log*
+package-lock.json
+
+# Electron build output
+out/
+release/
+
+# Development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

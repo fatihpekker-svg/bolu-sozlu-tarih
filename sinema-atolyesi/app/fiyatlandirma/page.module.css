@@ -1,0 +1,250 @@
+.pricingPage {
+    padding: 4rem 0 5rem;
+    min-height: calc(100vh - var(--header-height));
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header p {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Pricing Grid */
+.pricingGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricingCard {
+    background: var(--color-background-light);
+    border: 2px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.pricingCard:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.highlighted {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 1px var(--color-secondary);
+    transform: scale(1.05);
+}
+
+.highlighted:hover {
+    transform: scale(1.05) translateY(-8px);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-secondary);
+    color: var(--color-background);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.cardHeader h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Pricing */
+.pricing {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.currency {
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+    margin-right: 0.25rem;
+}
+
+.amount {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: var(--color-white);
+    line-height: 1;
+}
+
+.period {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-left: 0.5rem;
+}
+
+.savings {
+    text-align: center;
+    color: var(--color-success);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Features */
+.features {
+    margin-top: 2rem;
+}
+
+.features h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.limitationsTitle {
+    margin-top: 1.5rem !important;
+}
+
+.featureList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.featureList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.included {
+    color: var(--color-text);
+}
+
+.included svg {
+    color: var(--color-success);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.excluded {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+.excluded svg {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* FAQ */
+.faq {
+    max-width: 900px;
+    margin: 5rem auto 4rem;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.faqGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.faqItem {
+    background: var(--color-background-light);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.faqItem h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--color-white);
+}
+
+.faqItem p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    background: var(--gradient-accent);
+    padding: 4rem 2rem;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    font-size: 1.25rem;
+    color: var(--color-white);
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .pricingGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlighted {
+        transform: scale(1);
+    }
+
+    .highlighted:hover {
+        transform: translateY(-8px);
+    }
+
+    .amount {
+        font-size: 3rem;
+    }
+
+    .faqGrid {
+        grid-template-columns: 1fr;
+    }
+}

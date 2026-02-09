@@ -1,0 +1,202 @@
+.levelsPage {
+    padding: 3rem 0 5rem;
+    min-height: calc(100vh - var(--header-height));
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header p {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.levelsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.levelSection {
+    position: relative;
+}
+
+.levelHeader {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.levelIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-md);
+}
+
+.levelInfo {
+    flex: 1;
+}
+
+.levelInfo h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.levelInfo p {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.levelMeta {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+.levelMeta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.coursesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.courseCard {
+    background: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.courseCard:hover {
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+.courseHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.courseHeader h3 {
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+.courseDescription {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.lessonsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.lessonItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1rem;
+    background: var(--color-background);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.lessonItem:hover {
+    border-color: var(--color-secondary);
+    background: var(--color-background-light);
+    transform: translateX(4px);
+}
+
+.lessonNumber {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+}
+
+.lessonDetails {
+    flex: 1;
+}
+
+.lessonTitle {
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: 0.25rem;
+}
+
+.lessonDuration {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.lessonCheck {
+    color: var(--color-border);
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .levelHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .levelIcon {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+
+    .levelInfo h2 {
+        font-size: 1.75rem;
+    }
+
+    .coursesGrid {
+        grid-template-columns: 1fr;
+    }
+}

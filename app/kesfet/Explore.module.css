@@ -1,0 +1,22 @@
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.mobileFilterBtn {
+    display: none;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
+
+    .mobileFilterBtn {
+        display: flex;
+    }
+}

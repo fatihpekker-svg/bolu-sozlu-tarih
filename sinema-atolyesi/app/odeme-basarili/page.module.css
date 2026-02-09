@@ -1,0 +1,139 @@
+.successPage {
+    padding: 5rem 0;
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.successCard {
+    background: var(--color-background-light);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 4rem 3rem;
+    max-width: 700px;
+    text-align: center;
+}
+
+.icon {
+    color: var(--color-success);
+    margin-bottom: 2rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.successCard h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+}
+
+.planInfo {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.planInfo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-secondary);
+}
+
+.benefits {
+    margin-bottom: 3rem;
+}
+
+.benefits h3 {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.benefitGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.benefit svg {
+    color: var(--color-secondary);
+}
+
+.benefit h4 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.benefit p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.confirmation {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.confirmation p {
+    margin: 0.5rem 0;
+}
+
+.muted {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .successCard {
+        padding: 3rem 2rem;
+    }
+
+    .successCard h1 {
+        font-size: 2rem;
+    }
+
+    .benefitGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}

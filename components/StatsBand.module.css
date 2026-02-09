@@ -1,0 +1,38 @@
+.band {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 4rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 2rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.value {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,97 @@
+.header {
+    height: var(--header-height);
+    background-color: var(--color-background);
+    border-bottom: 1px solid rgba(26, 54, 93, 0.1);
+    /* Primary with opacity */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logoArea {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logoText {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.link:hover {
+    color: var(--color-secondary);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.iconBtn:hover {
+    background-color: rgba(26, 54, 93, 0.05);
+}
+
+.authBtn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.25rem;
+}
+
+.mobileMenuBtn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-primary);
+}
+
+@media (max-width: 1024px) {
+    .nav {
+        display: none;
+        /* Hide standard nav on tablet/mobile */
+    }
+
+    .actions {
+        display: none;
+    }
+
+    .mobileMenuBtn {
+        display: block;
+    }
+}
