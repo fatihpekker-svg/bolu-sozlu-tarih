@@ -2,6 +2,14 @@ import { getStory } from "@/sanity/lib/queries";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getStories } from "@/sanity/lib/queries";
+
+export async function generateStaticParams() {
+    const stories = await getStories();
+    return stories.map((story) => ({
+        slug: story.slug,
+    }));
+}
 
 function getYouTubeID(url) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -10,7 +18,7 @@ function getYouTubeID(url) {
 }
 
 export default async function StoryPage({ params }) {
-    const { slug } = await params;
+    const slug = (await params).slug;
     const story = await getStory(slug);
 
     if (!story) {
@@ -21,6 +29,7 @@ export default async function StoryPage({ params }) {
         <div className="container" style={{ padding: '4rem 0' }}>
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{story.title}</h1>
+
                 <div style={{ marginBottom: '2rem', color: '#666' }}>
                     {story.interviewee} • {story.date} {story.location && `• ${story.location}`}
                 </div>

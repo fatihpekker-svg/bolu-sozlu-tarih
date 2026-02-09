@@ -2,6 +2,12 @@ import { blogPosts } from "../data";
 import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import Link from "next/link";
 
+export async function generateStaticParams() {
+    return blogPosts.map((post) => ({
+        slug: post.slug,
+    }));
+}
+
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const post = blogPosts.find(p => p.slug === slug);

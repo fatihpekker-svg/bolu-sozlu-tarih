@@ -20,6 +20,12 @@ export async function generateMetadata({ params }) {
     };
 }
 
+export async function generateStaticParams() {
+    return Object.keys(collectionsData).map((id) => ({
+        id: id,
+    }));
+}
+
 export default async function CollectionDetail({ params }) {
     const { id } = await params;
     const collection = collectionsData[id];
