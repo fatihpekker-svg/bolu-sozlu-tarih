@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Enabled for FTP Static Deployment (Disabled for Studio Content Entry)
+  output: 'export', // Enabled for FTP Static Deployment
   images: {
     unoptimized: true,
     remotePatterns: [
