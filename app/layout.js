@@ -8,10 +8,12 @@ export const metadata = {
   description: "Bolu'nun toplumsal hafızasını oluşturan bireysel tanıklıkları kayıt altına alan yerel dijital arşiv.",
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="tr">
+      <html lang="tr" suppressHydrationWarning>
         <body>
           <Header />
           <main>

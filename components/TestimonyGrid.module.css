@@ -81,12 +81,44 @@
     pointer-events: none;
 }
 
-.sortBtn {
-    padding: 0.75rem 1rem;
+.sortWrapper {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
+    min-width: 180px;
+}
+
+.sortSelect {
+    appearance: none;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sortSelect:hover {
+    border-color: var(--color-secondary);
+}
+
+.sortSelect:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+.sortIcon {
+    position: absolute;
+    right: 12px;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .mobileFilterBtn {
@@ -153,9 +185,8 @@
         min-width: 100%;
     }
 
-    .sortBtn {
+    .sortWrapper {
         width: 100%;
-        justify-content: center;
     }
 
     .grid {

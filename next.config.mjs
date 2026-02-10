@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // output: 'export', // Disabled for Auth (Clerk) Middleware support
   images: {
     unoptimized: true,
     remotePatterns: [

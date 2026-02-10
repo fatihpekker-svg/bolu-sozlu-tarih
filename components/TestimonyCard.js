@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Play, MapPin, Calendar } from "lucide-react";
+import { Play, MapPin, Calendar, Heart } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useUser } from "@clerk/nextjs";
+import { supabase } from "@/lib/supabaseClient";
 import styles from "./TestimonyCard.module.css";
 
 function getYouTubeID(url) {
@@ -10,7 +13,51 @@ function getYouTubeID(url) {
     return (match && match[2].length === 11) ? match[2] : null;
 }
 
-export default function TestimonyCard({ title, narrator, date, location, slug, imageUrl, youtubeUrl, type = "video" }) {
+export default function TestimonyCard({ id, title, narrator, date, location, slug, imageUrl, youtubeUrl, type = "video", isFavorited: initialFavorited }) {
+    const { isSignedIn, user } = useUser();
+    const [isFavorited, setIsFavorited] = useState(initialFavorited);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        setIsFavorited(initialFavorited);
+    }, [initialFavorited]);
+
+    const toggleFavorite = async (e) => {
+        e.preventDefault(); // Prevent navigating to detail page
+        e.stopPropagation();
+
+        if (!isSignedIn) {
+            alert("Favorilere eklemek için lütfen giriş yapın.");
+            return;
+        }
+
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
+        const nextState = !isFavorited;
+        setIsFavorited(nextState); // Optimistic update
+
+        try {
+            if (nextState) {
+                // Add to favorites
+                await supabase
+                    .from('favorites')
+                    .insert([{ user_id: user.id, story_id: id }]);
+            } else {
+                // Remove from favorites
+                await supabase
+                    .from('favorites')
+                    .delete()
+                    .eq('user_id', user.id)
+                    .eq('story_id', id);
+            }
+        } catch (error) {
+            console.error("Error toggling favorite:", error);
+            setIsFavorited(!nextState); // Revert on error
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     let displayImageUrl = imageUrl;
 
     // If no main image but we have a YouTube URL, try to get the thumbnail
@@ -52,7 +99,14 @@ export default function TestimonyCard({ title, narrator, date, location, slug, i
                 </div>
 
                 {type && <span className={styles.typeBadge}>{type}</span>}
-                {/* Duration removed as it's not in schema yet */}
+                <button
+                    className={`${styles.favoriteBtn} ${isFavorited ? styles.favorited : ""}`}
+                    onClick={toggleFavorite}
+                    disabled={isSubmitting}
+                    title={isFavorited ? "Favorilerden Çıkar" : "Favorilere Ekle"}
+                >
+                    <Heart size={20} fill={isFavorited ? "currentColor" : "none"} />
+                </button>
             </div>
 
             <div className={styles.content}>

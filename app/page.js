@@ -22,7 +22,7 @@ export default async function Home() {
               <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Öne Çıkan Tanıklıklar</h2>
               <p style={{ opacity: 0.8 }}>Editörlerimizin seçtiği etkileyici hikayeler</p>
             </div>
-            <Link href="/explore" className="btn btnOutline">
+            <Link href="/kesfet" className="btn btnOutline">
               Tümünü Gör <ArrowRight size={18} style={{ marginLeft: '8px' }} />
             </Link>
           </div>

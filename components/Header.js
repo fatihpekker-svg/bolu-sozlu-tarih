@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Menu, Search, User, X } from "lucide-react";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -50,6 +51,9 @@ export default function Header() {
                             {item.label}
                         </Link>
                     ))}
+                    <SignedIn>
+                        <Link href="/hesabim" className={styles.link}>Hesabım</Link>
+                    </SignedIn>
                 </nav>
 
                 {/* Desktop Actions */}
@@ -76,12 +80,18 @@ export default function Header() {
                     >
                         {isSearchOpen ? <X size={20} /> : <Search size={20} />}
                     </button>
-                    <Link href="/giris" className={`${styles.iconBtn}`}>
-                        <User size={20} />
-                    </Link>
-                    <Link href="/katki" className="btn btnPrimary authBtn">
-                        Katkıda Bulun
-                    </Link>
+
+                    <div className={styles.authWrapper}>
+                        <SignedOut>
+                            <Link href="/sign-in" className={`${styles.iconBtn} ${styles.loginBtn}`} title="Giriş Yap">
+                                <User size={20} />
+                                <span className={styles.loginText}>Giriş</span>
+                            </Link>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton afterSignOutUrl="/" />
+                        </SignedIn>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -109,6 +119,11 @@ export default function Header() {
                                 {item.label}
                             </Link>
                         ))}
+                        <SignedIn>
+                            <Link href="/hesabim" onClick={() => setIsMenuOpen(false)}>
+                                Hesabım
+                            </Link>
+                        </SignedIn>
                         <Link href="/katki" onClick={() => setIsMenuOpen(false)} style={{ color: 'var(--color-secondary)' }}>
                             Katkıda Bulun
                         </Link>

@@ -114,7 +114,7 @@ export default function TimelinePage() {
                                         {event.desc}
                                     </p>
 
-                                    <Link href="/explore" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--color-primary)', fontWeight: '600', textDecoration: 'none' }}>
+                                    <Link href="/kesfet" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--color-primary)', fontWeight: '600', textDecoration: 'none' }}>
                                         Döneme Git <ArrowRight size={16} style={{ marginLeft: '4px' }} />
                                     </Link>
                                 </div>

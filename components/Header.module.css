@@ -96,6 +96,39 @@
     }
 }
 
+.authWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.loginBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem !important;
+    background: rgba(26, 54, 93, 0.05);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.loginBtn:hover {
+    background: rgba(26, 54, 93, 0.1);
+    color: var(--color-primary);
+}
+
+.loginText {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .loginText {
+        display: none;
+    }
+}
+
 .searchInput {
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-border);
