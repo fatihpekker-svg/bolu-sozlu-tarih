@@ -5,7 +5,7 @@ import { getCollectionBySlug, getCollections } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 
 // Required for static export
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
     const collections = await getCollections();

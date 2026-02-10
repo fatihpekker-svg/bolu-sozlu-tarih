@@ -8,7 +8,7 @@ import StoryGallery from "@/components/StoryGallery";
 import styles from "./Story.module.css";
 
 // Allow dynamic params for new stories not generated at build time
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
     const stories = await getStories();
