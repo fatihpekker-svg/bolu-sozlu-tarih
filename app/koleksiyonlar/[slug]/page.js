@@ -8,10 +8,7 @@ import { notFound } from "next/navigation";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-    const collections = await getCollections();
-    return collections.map((col) => ({
-        slug: col.slug,
-    }));
+    return [];
 }
 
 export async function generateMetadata({ params }) {
