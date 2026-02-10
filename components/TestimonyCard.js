@@ -15,7 +15,10 @@ function getYouTubeID(url) {
 }
 
 export default function TestimonyCard({ id, title, narrator, date, location, slug, imageUrl, youtubeUrl, type = "video", isFavorited: initialFavorited }) {
-    const { isSignedIn, user } = useUser();
+    // const { isSignedIn, user } = useUser();
+    const isSignedIn = false; // Temporary disable
+    const user = null; // Temporary disable
+
     const [isFavorited, setIsFavorited] = useState(initialFavorited);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -27,6 +30,10 @@ export default function TestimonyCard({ id, title, narrator, date, location, slu
         e.preventDefault(); // Prevent navigating to detail page
         e.stopPropagation();
 
+        alert("Favorilere ekleme özelliği bakım aşamasındadır.");
+        return;
+
+        /*
         if (!isSignedIn) {
             alert("Favorilere eklemek için lütfen giriş yapın.");
             return;
@@ -58,6 +65,7 @@ export default function TestimonyCard({ id, title, narrator, date, location, slu
         } finally {
             setIsSubmitting(false);
         }
+        */
     };
     let displayImageUrl = imageUrl;
 
