@@ -150,5 +150,12 @@ export default defineType({
             type: 'array',
             of: [{ type: 'block' }]
         }),
+        defineField({
+            name: 'collections',
+            title: 'Koleksiyonlar',
+            type: 'array',
+            of: [{ type: 'reference', to: { type: 'collection' } }],
+            description: 'Bu hikayenin ait olduğu tematik koleksiyonlar'
+        }),
     ],
 })

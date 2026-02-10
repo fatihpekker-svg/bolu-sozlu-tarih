@@ -1,6 +1,7 @@
 import blockContent from './blockContent'
 import story from './story'
+import collection from './collection'
 
 export const schema = {
-    types: [story, blockContent],
+    types: [story, collection, blockContent],
 }

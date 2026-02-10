@@ -5,7 +5,7 @@ export const metadata = {
     description: "Arşivdeki özel tematik koleksiyonları inceleyin.",
 };
 
-export default function CollectionsPage() {
+export default async function CollectionsPage() {
     return (
         <div className="container section">
             <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 4rem' }}>

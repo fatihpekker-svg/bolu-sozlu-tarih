@@ -7,7 +7,12 @@ import { ArrowRight } from "lucide-react";
 import { getStories } from "@/sanity/lib/queries";
 
 export default async function Home() {
-  const stories = await getStories();
+  let stories = [];
+  try {
+    stories = await getStories();
+  } catch (error) {
+    console.error("Home Page Fetch Error:", error);
+  }
 
   return (
     <>

@@ -64,3 +64,42 @@ export async function getStoriesByIds(ids) {
     }
   `, { ids });
 }
+
+export async function getCollections() {
+  return client.fetch(`
+    *[_type == "collection"] | order(title asc) {
+      _id,
+      title,
+      "slug": slug.current,
+      description,
+      "imageUrl": mainImage.asset->url,
+      icon,
+      "storyCount": count(*[_type == "story" && references(^._id)])
+    }
+  `);
+}
+
+export async function getCollectionBySlug(slug) {
+  return client.fetch(`
+    *[_type == "collection" && slug.current == $slug][0] {
+      _id,
+      title,
+      "slug": slug.current,
+      description,
+      "imageUrl": mainImage.asset->url,
+      icon,
+      "stories": *[_type == "story" && references(^._id)] | order(publishedAt desc) {
+        _id,
+        title,
+        interviewee,
+        date,
+        excerpt,
+        "slug": slug.current,
+        "imageUrl": mainImage.asset->url,
+        location,
+        village,
+        "youtubeUrl": youtubeUrl
+      }
+    }
+  `, { slug });
+}
