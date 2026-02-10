@@ -65,7 +65,7 @@ export default async function Home() {
               Mengen'den Göynük'e, Gerede'den Mudurnu'ya... Bolu'nun dört bir yanından toplanmış tanıklıklara harita üzerinden ulaşın.
               Kendi ilçenizdeki veya köyünüzdeki sözlü tarih kayıtlarını dinleyin, yerel hafızaya dokunun.
             </p>
-            <Link href="/map" className="btn btnSecondary" style={{ fontSize: '1.1rem', padding: '1rem 3rem' }}>
+            <Link href="/harita" className="btn btnSecondary" style={{ fontSize: '1.1rem', padding: '1rem 3rem' }}>
               Haritada Keşfet
             </Link>
           </div>

@@ -25,13 +25,7 @@ export default async function CollectionGrid() {
         );
     }
 
-    if (!collections || collections.length === 0) {
-        return (
-            <div style={{ textAlign: 'center', padding: '4rem' }}>
-                <p>Henüz koleksiyon eklenmemiş.</p>
-            </div>
-        );
-    }
+    // Early return logic removed to allow title to render
 
     return (
         <section className="section">
@@ -44,18 +38,24 @@ export default async function CollectionGrid() {
                 </div>
 
                 <div className={styles.grid}>
-                    {collections.map((col) => {
-                        const IconComponent = iconMap[col.icon] || Archive;
-                        return (
-                            <Link key={col._id} href={`/koleksiyonlar/${col.slug}`} className={styles.card}>
-                                <div className={styles.iconBox}>
-                                    <IconComponent size={32} />
-                                </div>
-                                <h3 className={styles.title}>{col.title}</h3>
-                                <p className={styles.count}>{col.storyCount || 0} Tanıklık</p>
-                            </Link>
-                        );
-                    })}
+                    {(!collections || collections.length === 0) ? (
+                        <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '2rem', background: '#f9fafb', borderRadius: '12px' }}>
+                            <p style={{ color: '#666' }}>Henüz koleksiyon eklenmemiş.</p>
+                        </div>
+                    ) : (
+                        collections.map((col) => {
+                            const IconComponent = iconMap[col.icon] || Archive;
+                            return (
+                                <Link key={col._id} href={`/koleksiyonlar/${col.slug}`} className={styles.card}>
+                                    <div className={styles.iconBox}>
+                                        <IconComponent size={32} />
+                                    </div>
+                                    <h3 className={styles.title}>{col.title}</h3>
+                                    <p className={styles.count}>{col.storyCount || 0} Tanıklık</p>
+                                </Link>
+                            );
+                        })
+                    )}
                 </div>
             </div>
         </section>

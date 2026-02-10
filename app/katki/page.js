@@ -28,7 +28,7 @@ export default function ContributePage() {
         <div className="container section">
             <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>Hikayeni Paylaş</h1>
+                    <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '1rem', color: 'var(--color-primary)' }}>Hikayeni Paylaş</h1>
                     <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>
                         Tarihe bir not düşmek ister misiniz? Kendi hikayenizi veya aile büyüklerinizin anılarını paylaşarak arşive katkıda bulunun.
                     </p>
@@ -121,7 +121,7 @@ export default function ContributePage() {
                             <h2 style={{ fontSize: '1.5rem', marginBottom: '2rem', borderBottom: '1px solid #eee', paddingBottom: '1rem' }}>
                                 Adım 1: Kişisel Bilgiler
                             </h2>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <label style={{ fontWeight: '500' }}>Adınız</label>
                                     <input type="text" className="input" style={{ padding: '0.75rem', border: '1px solid #d1d5db', borderRadius: '4px' }} />
@@ -213,7 +213,7 @@ export default function ContributePage() {
                 </div>
 
                 {/* Info Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginTop: '4rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginTop: '4rem' }}>
                     <div style={{ textAlign: 'center', padding: '1rem' }}>
                         <Mic size={40} style={{ color: 'var(--color-secondary)', marginBottom: '1rem' }} />
                         <h3 style={{ marginBottom: '0.5rem', fontWeight: '600' }}>Ses Kaydı</h3>
