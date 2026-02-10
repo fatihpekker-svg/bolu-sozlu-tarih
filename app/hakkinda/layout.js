@@ -29,7 +29,7 @@ export default function AboutLayout({ children }) {
                 <aside className={styles.sidebar}>
                     <nav style={{ display: 'flex', flexDirection: 'column' }}>
                         {links.map((link) => {
-                            const isActive = pathname === link.href;
+                            const isActive = pathname === link.href || (link.href === '/hakkinda/proje' && pathname === '/hakkinda');
                             return (
                                 <Link
                                     key={link.href}
