@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export', // Disabled for Auth (Clerk) Middleware support
+  output: 'export', // Enabled for FTP Static Deployment
   images: {
     unoptimized: true,
     remotePatterns: [
