@@ -1,8 +1,18 @@
 import TestimonyCard from "@/components/TestimonyCard";
 import { ArrowLeft, PlayCircle } from "lucide-react";
 import Link from "next/link";
-import { getCollectionBySlug } from "@/sanity/lib/queries";
+import { getCollectionBySlug, getCollections } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
+
+// Required for static export
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+    const collections = await getCollections();
+    return collections.map((col) => ({
+        slug: col.slug,
+    }));
+}
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
