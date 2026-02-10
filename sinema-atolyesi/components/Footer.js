@@ -1,4 +1,5 @@
 import { Film, Mail, Youtube, Instagram } from 'lucide-react';
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -18,19 +19,19 @@ export default function Footer() {
                     {/* Links */}
                     <div className={styles.links}>
                         <div>
-                            <h4>Platformdüm</h4>
+                            <h4>Platform</h4>
                             <ul>
-                                <li><a href="/hakkinda">Hakkımızda</a></li>
-                                <li><a href="/seviyeler">Seviyeler</a></li>
-                                <li><a href="/iletisim">İletişim</a></li>
+                                <li><Link href="/hakkinda">Hakkımızda</Link></li>
+                                <li><Link href="/seviyeler">Seviyeler</Link></li>
+                                <li><Link href="/iletisim">İletişim</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4>Destek</h4>
                             <ul>
-                                <li><a href="/sss">SSS</a></li>
-                                <li><a href="/kullanim-kosullari">Kullanım Koşulları</a></li>
-                                <li><a href="/gizlilik">Gizlilik Politikası</a></li>
+                                <li><Link href="/sss">SSS</Link></li>
+                                <li><Link href="/kullanim-kosullari">Kullanım Koşulları</Link></li>
+                                <li><Link href="/gizlilik">Gizlilik Politikası</Link></li>
                             </ul>
                         </div>
                     </div>

@@ -101,7 +101,7 @@ button {
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid transparent;
-  text-transform: uppercase;
+  /* text-transform: uppercase; Removed for Title Case support */
   letter-spacing: 0.025em;
   font-size: 0.95rem;
 }

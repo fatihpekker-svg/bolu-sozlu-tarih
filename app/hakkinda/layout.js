@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Info, Users, Handshake, Newspaper } from "lucide-react";
+import styles from "./about.module.css";
 
 export default function AboutLayout({ children }) {
     const pathname = usePathname();
@@ -23,16 +24,9 @@ export default function AboutLayout({ children }) {
                 </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 1fr) 3fr', gap: '4rem', alignItems: 'start' }}>
+            <div className={styles.layoutGrid}>
                 {/* Sidebar */}
-                <aside style={{
-                    background: '#fff',
-                    border: '1px solid var(--color-border)',
-                    borderRadius: '12px',
-                    overflow: 'hidden',
-                    position: 'sticky',
-                    top: '2rem'
-                }}>
+                <aside className={styles.sidebar}>
                     <nav style={{ display: 'flex', flexDirection: 'column' }}>
                         {links.map((link) => {
                             const isActive = pathname === link.href;
@@ -40,15 +34,7 @@ export default function AboutLayout({ children }) {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    style={{
-                                        display: 'flex', alignItems: 'center', gap: '12px',
-                                        padding: '1rem 1.5rem',
-                                        background: isActive ? 'var(--color-primary)' : 'transparent',
-                                        color: isActive ? '#fff' : 'var(--color-text)',
-                                        borderBottom: '1px solid #f1f5f9',
-                                        fontWeight: isActive ? '600' : '400',
-                                        transition: 'all 0.2s'
-                                    }}
+                                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
                                 >
                                     {link.icon}
                                     {link.label}
@@ -59,7 +45,7 @@ export default function AboutLayout({ children }) {
                 </aside>
 
                 {/* Content Area */}
-                <div style={{ background: '#fff', padding: '2rem', borderRadius: '12px' }}>
+                <div className={styles.contentContainer}>
                     {children}
                 </div>
             </div>

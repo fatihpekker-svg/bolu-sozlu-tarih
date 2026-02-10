@@ -1,4 +1,5 @@
 import { Target, Flag, History, Quote } from "lucide-react";
+import styles from "../about.module.css";
 
 export const metadata = {
     title: "Proje Hakkında | Bolu Sözlü Tarih",
@@ -13,7 +14,7 @@ export default function ProjePage() {
                     Tarih, sadece kitaplarda yazan büyük olaylardan ibaret değildir.
                     Asıl tarih; bir çarşı esnafının anlattıklarında, bir yayla göçünde söylenen türküde ve depremi yaşamış bir annenin sessizliğinde saklıdır.
                 </p>
-                <div style={{ marginTop: '2rem', padding: '1.5rem', borderLeft: '4px solid var(--color-secondary)', background: '#fff7ed', fontStyle: 'italic', color: '#555', display: 'flex', gap: '1rem' }}>
+                <div className={styles.quoteBox}>
                     <Quote size={32} color="var(--color-secondary)" style={{ flexShrink: 0 }} />
                     <div>
                         "Bolu'nun hafızasını kaybetmesine izin veremezdik. Çünkü bir şehri şehir yapan, binaları değil, o binaların içinde yaşananlardır."
@@ -24,8 +25,8 @@ export default function ProjePage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }}>
 
-                <div style={{ display: 'flex', gap: '1.5rem' }}>
-                    <div style={{ background: '#dbeafe', width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <div className={styles.featureItem}>
+                    <div className={styles.iconBox} style={{ background: '#dbeafe' }}>
                         <Target size={28} color="#1e40af" />
                     </div>
                     <div>
@@ -37,8 +38,8 @@ export default function ProjePage() {
                     </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '1.5rem' }}>
-                    <div style={{ background: '#dcfce7', width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <div className={styles.featureItem}>
+                    <div className={styles.iconBox} style={{ background: '#dcfce7' }}>
                         <Flag size={28} color="#166534" />
                     </div>
                     <div>
@@ -52,8 +53,8 @@ export default function ProjePage() {
                     </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '1.5rem' }}>
-                    <div style={{ background: '#f3e8ff', width: '60px', height: '60px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <div className={styles.featureItem}>
+                    <div className={styles.iconBox} style={{ background: '#f3e8ff' }}>
                         <History size={28} color="#6b21a8" />
                     </div>
                     <div>

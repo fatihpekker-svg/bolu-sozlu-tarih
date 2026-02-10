@@ -2,10 +2,10 @@ import styles from "./StatsBand.module.css";
 
 export default function StatsBand() {
     const stats = [
-        { value: "1.250+", label: "Toplam Tanıklık" },
-        { value: "3.500+", label: "Saat Kayıt" },
-        { value: "81", label: "İl" },
-        { value: "45+", label: "Özel Koleksiyon" },
+        { value: "250+", label: "Tanıklık" },
+        { value: "400+", label: "Saat Kayıt" },
+        { value: "9", label: "İlçe (Bolu)" },
+        { value: "10+", label: "Özel Koleksiyon" },
     ];
 
     return (

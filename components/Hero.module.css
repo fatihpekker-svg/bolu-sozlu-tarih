@@ -16,12 +16,36 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-primary);
-    /* Fallback color */
-    background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2670&auto=format&fit=crop');
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
     z-index: 1;
+}
+
+.active {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* The requested blue transition color overlay */
+    background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.8));
+    z-index: 2;
+    pointer-events: none;
 }
 
 .content {
@@ -33,7 +57,7 @@
 
 .label {
     font-family: var(--font-body);
-    text-transform: uppercase;
+    /* text-transform: uppercase; Removed for Turkish char support */
     letter-spacing: 0.2em;
     font-size: 0.9rem;
     font-weight: 600;
