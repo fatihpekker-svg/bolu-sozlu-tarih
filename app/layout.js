@@ -10,16 +10,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang="tr" suppressHydrationWarning>
-        <body>
-          <Header />
-          <main>
-            {children}
-          </main>
-          <Footer />
-        </body>
-      </html>
-    </ClerkProvider>
+    // <ClerkProvider>
+    <html lang="tr" suppressHydrationWarning>
+      <body>
+        <Header />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
+    // </ClerkProvider>
   );
 }

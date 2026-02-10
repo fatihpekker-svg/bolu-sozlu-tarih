@@ -26,7 +26,7 @@ function getYouTubeID(url) {
 
 export default async function StoryPage({ params }) {
     try {
-        const { slug } = params;
+        const { slug } = await params;
         const story = await getStory(slug);
 
         if (!story) {

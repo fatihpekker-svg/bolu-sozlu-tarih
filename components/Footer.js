@@ -20,6 +20,7 @@ export default function Footer() {
                         <h3>Hızlı Linkler</h3>
                         <ul className={styles.linkList}>
                             <li><Link href="/kesfet">Keşfet</Link></li>
+                            <li><Link href="/blog">Blog</Link></li>
                             <li><Link href="/sss">Sıkça Sorulan Sorular</Link></li>
                             <li><Link href="/kaynaklar">Kaynaklar</Link></li>
                             <li><Link href="/katki">Katkıda Bulun</Link></li>

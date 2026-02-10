@@ -6,7 +6,7 @@ import TestimonyCard from "@/components/TestimonyCard";
 import { Search, ChevronDown, Filter } from "lucide-react";
 import styles from "./TestimonyGrid.module.css";
 import { useSearchParams } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
+// import { useUser } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabaseClient";
 
 export default function TestimonyGrid({ initialStories }) {

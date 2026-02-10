@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Play, MapPin, Calendar, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useUser } from "@clerk/nextjs";
+// import { useUser } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabaseClient";
 import styles from "./TestimonyCard.module.css";
 

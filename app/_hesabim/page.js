@@ -3,7 +3,7 @@ import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { getStoriesByIds } from "@/sanity/lib/queries";
-import TestimonyCard from "@/components/TestimonyCard";
+// import TestimonyCard from "@/components/TestimonyCard";
 import styles from "./profile.module.css";
 
 export default function ProfilePage() {
@@ -69,6 +69,7 @@ export default function ProfilePage() {
         );
     }
 
+    /*
     return (
         <div className={`container py-16 ${styles.profileContainer}`}>
             <div className={styles.header}>
@@ -116,6 +117,13 @@ export default function ProfilePage() {
                     </div>
                 )}
             </div>
+        </div>
+    );
+    */
+    return (
+        <div className="container py-20 text-center">
+            <h1>Profil Sayfası Bakımda</h1>
+            <p>Static export testi için geçici olarak devre dışı bırakıldı.</p>
         </div>
     );
 }
