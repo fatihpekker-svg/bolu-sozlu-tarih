@@ -11,7 +11,7 @@ import { supabase } from "@/lib/supabaseClient";
 
 export default function TestimonyGrid({ initialStories }) {
     const searchParams = useSearchParams();
-    const { isLoaded, isSignedIn, user } = useUser();
+    // const { isLoaded, isSignedIn, user } = useUser();
 
     const [selectedLocations, setSelectedLocations] = useState([]);
     const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || "");
@@ -20,6 +20,7 @@ export default function TestimonyGrid({ initialStories }) {
     const [sortBy, setSortBy] = useState("newest"); // newest, oldest, az, za
 
     // Fetch user favorites
+    /*
     useEffect(() => {
         async function fetchFavorites() {
             if (isSignedIn && user) {
@@ -37,6 +38,7 @@ export default function TestimonyGrid({ initialStories }) {
             fetchFavorites();
         }
     }, [isLoaded, isSignedIn, user]);
+    */
 
     // Update state if URL param changes
     useEffect(() => {
