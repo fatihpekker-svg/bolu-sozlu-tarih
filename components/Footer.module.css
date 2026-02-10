@@ -1,9 +1,11 @@
 .footer {
-    background-color: var(--color-primary);
+    background-color: #0a1625;
+    /* Darker than primary for contrast */
     color: rgba(255, 255, 255, 0.8);
     padding: 5rem 0 2rem;
     margin-top: auto;
     font-size: 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .inner {

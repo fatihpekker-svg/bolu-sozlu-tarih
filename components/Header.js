@@ -1,20 +1,39 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Menu, Search, User, X } from "lucide-react";
 import styles from "./Header.module.css";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+    const router = useRouter();
 
     const navItems = [
         { label: "Keşfet", href: "/kesfet" },
         { label: "Metodoloji", href: "/metodoloji" },
-        { label: "Kaynaklar", href: "/kaynaklar" },
+        { label: "Paydaşlar", href: "/paydaslar" },
+        { label: "Sponsorlar", href: "/sponsorlar" },
         { label: "Hakkında", href: "/hakkinda" },
         { label: "Blog", href: "/blog" },
         { label: "İletişim", href: "/iletisim" },
     ];
+
+    const handleSearch = () => {
+        if (searchQuery.trim()) {
+            router.push(`/kesfet?q=${encodeURIComponent(searchQuery)}`);
+            setIsSearchOpen(false);
+            setSearchQuery("");
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            handleSearch();
+        }
+    };
 
     return (
         <header className={styles.header}>
@@ -35,8 +54,27 @@ export default function Header() {
 
                 {/* Desktop Actions */}
                 <div className={styles.actions}>
-                    <button className={styles.iconBtn} aria-label="Arama">
-                        <Search size={20} />
+                    <input
+                        type="text"
+                        className={`${styles.searchInput} ${isSearchOpen ? styles.active : ''}`}
+                        placeholder="Ara..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        autoFocus={isSearchOpen}
+                    />
+                    <button
+                        className={styles.iconBtn}
+                        aria-label="Arama"
+                        onClick={() => {
+                            if (isSearchOpen && searchQuery) {
+                                handleSearch();
+                            } else {
+                                setIsSearchOpen(!isSearchOpen);
+                            }
+                        }}
+                    >
+                        {isSearchOpen ? <X size={20} /> : <Search size={20} />}
                     </button>
                     <Link href="/giris" className={`${styles.iconBtn}`}>
                         <User size={20} />

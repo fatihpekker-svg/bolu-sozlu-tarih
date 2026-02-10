@@ -31,6 +31,8 @@ export default function Footer() {
                         <h3>Kurumsal</h3>
                         <ul className={styles.linkList}>
                             <li><Link href="/hakkinda">Hakkımızda</Link></li>
+                            <li><Link href="/paydaslar">Paydaşlar</Link></li>
+                            <li><Link href="/sponsorlar">Sponsorlar</Link></li>
                             <li><Link href="/metodoloji">Metodoloji</Link></li>
                             <li><Link href="/etik">Etik & Yasal</Link></li>
                             <li><Link href="/iletisim">İletişim</Link></li>

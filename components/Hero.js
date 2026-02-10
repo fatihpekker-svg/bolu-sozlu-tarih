@@ -46,16 +46,16 @@ export default function Hero() {
                 </p>
 
                 <div className={styles.actions}>
-                    <Link href="/kesfet" className="btn btnSecondary" style={{ padding: '1.5rem 2.5rem', fontSize: '1.2rem', gap: '1rem' }}>
-                        <PlayCircle size={60} strokeWidth={1.5} />
+                    <Link href="/kesfet" className={`btn btnSecondary ${styles.btnHero}`}>
+                        <PlayCircle strokeWidth={1.5} />
                         Tanıklıkları Keşfet
                     </Link>
-                    <Link href="/harita" className="btn btnGhost" style={{ padding: '1.5rem 2rem', fontSize: '1.2rem', gap: '1rem', background: 'rgba(255,255,255,0.1)' }}>
-                        <Map size={60} strokeWidth={1.5} />
+                    <Link href="/harita" className={`btn btnGhost ${styles.btnHero} ${styles.btnHeroGhost}`}>
+                        <Map strokeWidth={1.5} />
                         Haritada Keşfet
                     </Link>
-                    <Link href="/katki" className="btn" style={{ padding: '1.5rem 2rem', fontSize: '1.2rem', gap: '1rem', backgroundColor: '#1e3a8a', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>
-                        <Mic size={60} strokeWidth={1.5} />
+                    <Link href="/katki" className={`btn ${styles.btnHero} ${styles.btnHeroPrimary}`}>
+                        <Mic strokeWidth={1.5} />
                         Hikayeni Paylaş
                     </Link>
                 </div>

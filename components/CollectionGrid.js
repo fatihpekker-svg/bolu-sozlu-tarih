@@ -16,6 +16,12 @@ export default function CollectionGrid() {
         <section className="section">
             <div className="container">
 
+                <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--color-primary)' }}>Tematik Koleksiyonlar</h2>
+                    <p style={{ opacity: 0.8, fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto' }}>
+                        Bolu'nun hafızasını oluşturan özel başlıklar altında derlenmiş tanıklıklar.
+                    </p>
+                </div>
 
                 <div className={styles.grid}>
                     {collections.map((col, i) => (
